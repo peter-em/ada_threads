@@ -17,10 +17,10 @@ Kwestie techniczne
  - dodatkowo wątki mogą też na koniec dodawać koszt transportu do łącznej zarobionej sumy
  
 ELEMENTY ZREALIZOWANE
-   BRAK
+ - BRAK
  
 ELEMENTY DO ZROBIENIA
-   WSZYSTKIE
+ - WSZYSTKIE
    
 Dodatkowe uwagi, pomysły, spostrzeżenia:
-KILL ME, PLEASE!
+ - KILL ME, PLEASE!
