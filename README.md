@@ -17,10 +17,17 @@ Kwestie techniczne
  - dodatkowo wątki mogą też na koniec dodawać koszt transportu do łącznej zarobionej sumy
  
 ELEMENTY ZREALIZOWANE
- - BRAK
+ - procedura główna wywołująca wątek - nadzorcę
+ - wypisanie statusu kierowców
+ - drukowanie opcji (obecnie jednej - Podaj liczbę)
+ - nadzorca pracuje w pętli
+ - monitoruje zmiany statusu kierowców, przyjmuje nowe zlecenia
+ - odświeżanie informacji ręczne po każdorazowym wciśnięciu enter (nie częściej niż co 0.5s)
+ - odświeżanie informacji automatycznie co 3.5s
+ - współdzielone między wątkami: licznik aktywnych kierowców, tablica aktywności, tablica postępów
  
 ELEMENTY DO ZROBIENIA
- - WSZYSTKIE
-   
+ - WSZYSTKIE (już niekoniecznie)
+    
 Dodatkowe uwagi, pomysły, spostrzeżenia:
  - KILL ME, PLEASE!
