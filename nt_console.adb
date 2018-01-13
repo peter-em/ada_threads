@@ -284,8 +284,7 @@ package body NT_Console is
    begin
       Get_Buffer_Info;
       Length := DWORD (Buffer_Info_Rec.Size.X) * DWORD (Buffer_Info_Rec.Size.Y);
-      --Attr.Background := Color_Value (Color);
-			Attr.Background := Buffer_Info_Rec.Attrib.Background;
+      Attr.Background := Buffer_Info_Rec.Attrib.Background;
       Attr.Foreground := Buffer_Info_Rec.Attrib.Foreground;
       if SetConsoleTextAttribute (Output_Buffer, Attr) = WIN32_ERROR then
          raise Set_Attribute_Error;
