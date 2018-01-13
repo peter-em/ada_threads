@@ -1,8 +1,6 @@
 with Ada.Text_IO;
 with Ada.Strings.Fixed;
 with NT_Console;
---with Ada.Integer_Text_IO;
---with Ada.Strings.Unbounded;
 use Ada.Text_IO;
 use Ada.Strings.Fixed;
 
@@ -60,23 +58,24 @@ procedure taxiapp is
 			Id := New_Id;
 		end Get_Id;
 		loop
-			--Put_Line ("Kierowca Nr " & Id'Img & " czekam na zlecenie");
+			
 			accept Get_Order (New_Order : in Natural) do
 				
 				Order := New_Order;
 			end Get_Order;
 			exit when Order = 0;
+			
 			Traveled := 0;
 			while Traveled < Order loop
 				Traveled := Traveled + 1;
 				Completion := Float (Traveled * 20) / Float (Order);
 				WorkerStatus(Id) := Integer(Completion);
 				delay 1.0;
+				
 			end loop;
 			AreBusy(Id) := FALSE;
 			CountActive := CountActive - 1;
 			
-			--Put_Line ("Kierowca Nr " & Id'Img & " dojechal do celu");
 		end loop;
 		Put_Line ("Jestem kierowca Nr " & Id'Img & ", koncze prace");
 	end Worker;
@@ -136,40 +135,40 @@ procedure taxiapp is
 			end loop;
 			--print drivers states end
 			
-			Put ("Podaj liczbe (-1 aby zakonczyc):");
+			Put ("Podaj liczbe (-1 aby zakonczyc): ");
 			
-			--Put_Line ("Podaj liczbe:");
 			select
 				accept Input (Val : in Integer) do
 					Value := Val;
 				end Input;
-				--Put_Line ("#MANAGER data: '" & TrimInt(Value) & "'");
+				
 			or
-				delay 4.0;
+				delay 3.0;
 				New_Line;
 				Value := 0;
 			end select;
 			exit when Value = -1;
 			
 			if Value > 0 then
-				--Put_Line ("WorkersCount'Last: " & TrimInt(WorkersCount'Last));
 				if CountActive < WorkersCount'Last then
+					
 					while AreBusy(SelectedDriver) loop
 						SelectedDriver := SelectedDriver + 1;
-						if SelectedDriver > 10 then
-							--Put_Line ("Przesypalo sie, SelectedDriver:" & SelectedDriver'Img);
-							SelectedDriver := 1;
-						end if;
 					end loop;
+					
 					AreBusy(SelectedDriver) := TRUE;
 					CountActive := CountActive + 1;
 					Workers(SelectedDriver).Get_Order(Value);
-					SelectedDriver := SelectedDriver + 1;
+					
+					if SelectedDriver = 10 then
+						SelectedDriver := 1;
+					end if;
 				else 
 					Put_Line ("All drivers are busy now, please try again later");
+					delay 2.0;
 				end if;
 			end if;
-			--delay 2.0;
+			delay 1.0;
 			
 		end loop;
 		Put_Line ("#MANAGER zwalniam kierowcow");
@@ -188,6 +187,7 @@ begin
 		Value := Parse_String (ReadStr);
 		Manager.Input(Value);		
 		exit when Value = -1;
+
 	end loop;
 
 end;
