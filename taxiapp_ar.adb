@@ -1,15 +1,14 @@
--- program version with autorefresh
+-- program with autorefresh
+-- linux version
 
 with Ada.Text_IO;
 with Ada.Strings.Fixed;
-with NT_Console;
 with Ada.Numerics.Discrete_Random;
 use Ada.Text_IO;
 use Ada.Strings.Fixed;
 
 procedure taxiapp_ar is
 
-	package NT renames NT_Console;
 	subtype WorkersCount is Integer range 1 .. 10;
 	package RandGen is
 		function generate_random_number (n : in Natural) return Natural;
@@ -147,7 +146,7 @@ procedure taxiapp_ar is
 		delay 2.0;
 		
 		loop
-			NT.Clear_Screen;
+			Put (ASCII.ESC & "c");
 ---------------- print drivers states begin ---------------
 			Put_Line ("Aktywni kierowcy:" & CountActive'Img & ". Ich status:");
 			for I in WorkersCount loop
@@ -234,7 +233,6 @@ procedure taxiapp_ar is
 					delay 2.0;
 				end if;
 			end if;
-			--delay 1.0;
 			
 		end loop;
 		Put_Line ("#MANAGER zwalniam kierowcow");
