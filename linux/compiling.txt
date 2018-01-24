@@ -1,0 +1,5 @@
+Programs contain function with Ada 2012 feature.
+In order to compile them "-gnat2012" switch must be used.
+For example:
+
+gnatmake -gnat2012 taxiapp_ar.adb
