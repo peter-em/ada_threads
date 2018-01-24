@@ -1,6 +1,8 @@
 # ada_threads
 Projekt w języku ADA mający na celu pokazanie jego możliwości w zakresie wielowątkowości i współbieżności.
 
+WERSJA 1.0 PROGRAMU WYDANA 24.01.2018
+
 Tematem projektu jest 'aplikacja taksówkarska'.
 Program w formie tekstowej, uruchamiany z konsoli.
 
@@ -19,15 +21,9 @@ Kwestie techniczne
 ELEMENTY ZREALIZOWANE
  - procedura główna wywołująca wątek - nadzorcę
  - wypisanie statusu kierowców
- - drukowanie opcji (obecnie jednej - Podaj liczbę)
  - nadzorca pracuje w pętli
  - monitoruje zmiany statusu kierowców, przyjmuje nowe zlecenia
  - odświeżanie informacji ręczne po każdorazowym wciśnięciu enter (nie częściej niż co 0.5s)
- - odświeżanie informacji automatycznie co 3.5s
+ - odświeżanie informacji automatycznie co 3.0s
  - współdzielone między wątkami: licznik aktywnych kierowców, tablica aktywności, tablica postępów
  
-ELEMENTY DO ZROBIENIA
- - WSZYSTKIE (już niekoniecznie)
-    
-Dodatkowe uwagi, pomysły, spostrzeżenia:
- - KILL ME, PLEASE!
