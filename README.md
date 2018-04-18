@@ -27,3 +27,4 @@ ELEMENTY ZREALIZOWANE
  - odświeżanie informacji automatycznie co 3.0s
  - współdzielone między wątkami: licznik aktywnych kierowców, tablica aktywności, tablica postępów
  
+ Dopiski 'ar' oraz 'no_ar' odnoszą się do wersji programu kolejno posiadających i nieposiadających auto odświeżania.
